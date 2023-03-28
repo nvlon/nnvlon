@@ -1,0 +1,32 @@
+
+body{
+    background: url("https://oir.mobi/uploads/posts/2022-09/1662048725_1-oir-mobi-p-krasivii-fon-s-mashinoi-pinterest-1.jpg");
+}
+
+
+
+.color_white{
+    color: #DDDDDF;
+}
+
+hr {
+    border: none; /* Убираем границу для браузера Firefox */
+    color: whitesmoke; /* Цвет линии для остальных браузеров */
+    background-color: whitesmoke; /* Цвет линии для браузера Firefox и Opera */
+    height: 11px; /* Толщина линии */
+   }
+
+
+
+
+
+/*body{*/
+/*    background-color: tomato;*/
+/*}*/
+
+/*h3{*/
+/*    color:beige;*/
+/*}*/
+/*.qwerty{*/
+/*    color: lightslategray;*/
+/*}*/
