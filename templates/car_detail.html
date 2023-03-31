@@ -14,28 +14,47 @@
     <div class="post">
         <div class="post-image">
             <center>
-            <img src="{{car_detail.image.url}}">
+            <img src="{{object.image.url}}">
             </center>
         </div>
         <div class="post-content">
             <div class="post-header">
-                <h1>{{car_detail.title}}</h1>
+                <h1>{{object.title}}</h1>
                 <div class="post-meta">
-                    <time datetime="2019-04-01">{{car_detail.cost}}</time>
-                    <span class="author">{{car_detail.CAR_TYPE}}</span>
-                    <span class="category">{{car_detail.created_date}}</span>
+                    <time datetime="2019-04-01">{{object.cost}}</time>
+                    <span class="author">{{object.CAR_TYPE}}</span>
+                    <span class="category">{{object.created_date}}</span>
                      <br>
                     <br>
                     <button type="button" class="btn btn-outline-info"><a href="/car_list/" style="text-decoration: none; color: blue">На список автомобилей</a></button>
 
 
-            <button><a href="/car_list/{{car_detail.id}}/update">Редактировать</a> </button>
-            <button><a href="/car_list/{{car_detail.id}}/delete">Удалить </a> </button>
+                    <button type="button" class="btn btn-outline-info">
+    <a href="/car_list/{{object.id}}/delete/" style="text-decoration: none; color: blue">Удалить</a>
+                    </button>
+
+                    <button type="button" class="btn btn-outline-info">
+    <a href="/car_list/{{object.id}}/update/" style="text-decoration: none; color: blue">Редактировать</a>
+                    </button>
+
 
                 </div>
             </div>
-              <p>{{car_detail.description}}
+              <p>{{object.description}}
             </p>
+            <center>
+            <table>
+                <tr>
+                    <td>Текст</td> <td>Звезды</td> <td>Дата создания</td>
+                </tr>
+
+                {% for j in object.comment_object.all %}
+                <tr>
+                    <td>{{j.text}}</td> <td>{{j.rate_stars}}</td> <td>{{j.created_date}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            </center>
         </div>
     </div>
 </div>

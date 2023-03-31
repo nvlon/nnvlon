@@ -1,0 +1,10 @@
+
+.idea
+venv
+
+.env
+media
+db.sqlite3
+phone_shop
+book
+__pycache__
