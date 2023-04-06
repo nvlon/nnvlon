@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'phone_shop',
     'car',
     'parser_app',
+    'custom_users',
 ]
 
 MIDDLEWARE = [
