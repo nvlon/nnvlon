@@ -1,4 +1,4 @@
-
+.gitignore
 .idea
 venv
 
@@ -8,3 +8,4 @@ db.sqlite3
 phone_shop
 book
 __pycache__
+

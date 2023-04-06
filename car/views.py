@@ -36,7 +36,7 @@ class CreateCarView(CreateView):
     template_name = 'create_car.html'
     form_class = forms.CarForm
     queryset = models.Car.objects.all()
-    success_url = '/car_list/'
+    success_url = '/'
 
 def form_valid(self,form):
     print(form.cleaned_data)
@@ -64,11 +64,12 @@ def form_valid(self,form):
 class CarUpdateView(UpdateView):
     template_name = 'update_car.html'
     form_class = forms.CarForm
-    success_url = '/car_list/'
+    success_url = '/'
 
 def get_odject(self, **kwargs):
     car_id= self.kwargs.get('id')
-    return get_object_or_404(models.Car, id=car_id)
+
+    return get_object_or_404(models.Car, id= car_id)
 
 
 
@@ -106,3 +107,19 @@ def get_object(self, **kwargs):
 #     car_object.delete()
 #     return HttpResponse('<h2> Машина успешно удалена!<h2>')
 
+
+#кнопка поиск
+
+class Search(ListView):
+    template_name =  'car_list.html'
+    context_object_name = 'car'
+    paginate_by = 5
+
+    def get_queryset(self):
+        return models.Car.objects.filter(title__contains=self.request.GET.get('q'))
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
